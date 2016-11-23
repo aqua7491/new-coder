@@ -1,6 +1,6 @@
 import csv
 
-MY_FILE = '...'
+MY_FILE = '/home/local/py3eg/dataviz/sample_sfpd_incident_all.csv'
 
 def parse(raw_file, delimiter):
 	"""Parse raw CSV file """
