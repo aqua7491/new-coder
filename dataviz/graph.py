@@ -62,6 +62,32 @@ def visualize_days():
 
 	# close plot file
 	plt.clf()
-
+'''
 if __name__ == '__main__':
 	visualize_days()
+'''
+
+def visualize_type():
+	data_file = parse(MY_FILE, ',')
+	counter = Counter(item['Category'] for item in data_file)
+	labels = tuple(counter.keys())
+
+	xlocations = np.array(range(len(labels))) + 0.5
+
+	width = 0.5
+
+	plt.bar(xlocations, counter.values(), width=width)
+
+#	plt.xticks(xlocations + width / 2, labels, rotations=90)
+	plt.xticks(xlocations + width / 2, labels, rotation=90)
+
+	plt.subplots_adjust(bottom=0.4)
+
+	plt.rcParams['figure.figsize'] = 12,8
+
+	plt.savefig('Tape.png')
+
+	plt.clf()
+
+if __name__ == '__main__':
+	visualize_type()
